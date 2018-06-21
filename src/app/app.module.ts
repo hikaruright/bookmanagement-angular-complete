@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 
 import { RouterModule, Routes, Router } from '@angular/router';
 import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
+import { ListComponent } from './list/list.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
