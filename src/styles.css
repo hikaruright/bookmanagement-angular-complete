@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-size: normal;
+  }
+  
+  .master {
+    margin-top: 1.5em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .cal-header .left {
+    width: 100%;
+    text-align: left;
+    font-size: x-large;
+  }
+  
+  .cal-header .center {
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+  }
+  
+  .cal-header .right {
+    width: 100%;
+    text-align: right;
+    font-size: xx-large;
+  }
+  
+  table.calender thead th {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  table.calender tbody td {
+    height: 6em;
+    vertical-align: text-top;
+  }
+  
+  table.calender tbody td .date {
+    width: 100%;
+    font-size: x-large;
+    text-align: right;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-right: 12px;
+    margin: 4px;
+    vertical-align: text-top;
+  }
+  
+  table.calender .weekday {
+    color: #232323;
+  }
+  
+  table.calender .saturday {
+    color: #2323ed;
+  }
+  
+  table.calender .holiday {
+    color: #ed2323;
+  }
+  
+  table.calender .otherday {
+    color: #949494;
+  }
+  
