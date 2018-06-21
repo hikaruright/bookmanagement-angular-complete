@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 import { ListComponent } from './list/list.component';
+import { RegisterComponent } from './register/register.component';
+import { DetailComponent } from './detail/detail.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -21,7 +23,9 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
-    ListComponent
+    ListComponent,
+    RegisterComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
