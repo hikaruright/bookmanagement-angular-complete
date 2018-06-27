@@ -60,12 +60,10 @@ export class ListComponent implements OnInit {
   clicked($event, book: BookListDto) {
 
     let id = book.id;
-    alert(id);
+    //alert(id);
+    location.href="/detail/"+id;
   }
 
-  create() {
-    location.href = "/new";
-  }
 
 }
 
