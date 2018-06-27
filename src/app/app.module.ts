@@ -15,13 +15,15 @@ import { DetailComponent } from './detail/detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { EditComponent } from './edit/edit.component';
 
 // RotueModule => URLパスとの紐付けを行う
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'list', component: ListComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'detail', component: DetailComponent},
+  {path: 'detail/:id', component: DetailComponent},
+  {path: 'edit/:id', component: EditComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}, //404 page
 ]
@@ -32,8 +34,9 @@ const appRoutes: Routes = [
     LoginComponent,
     PageNotFoundComponent,
     ListComponent,
-    RegisterComponent,
-    DetailComponent
+    RegisterComponent,,
+    EditComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
