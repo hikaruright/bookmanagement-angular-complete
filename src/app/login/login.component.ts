@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { HttpConst } from '../../logic/http-const';
+import { SessionManager } from '../../logic/session-manager';
 
 @Component({
   selector: 'app-login',
@@ -8,39 +11,47 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  @Input() loginModel: LoginModel;
+  public model: LoginModel;
   loginForm: FormGroup;
 
   /** コンストラクタ */
-  constructor(public fb: FormBuilder) {
-    this.createForm();
+  constructor(public http: HttpClient) {
+    // this.createForm();
+    this.model = new LoginModel(null, null);
   }
 
   ngOnInit() {
-  }
-
-  createForm() {
-    this.loginForm = this.fb.group({
-      userid: '',
-      password: ''
-    });
   }
 
   /**
    * ログイン
    */
   login() {
-    alert("aaaaa?"+this.loginModel);
-    alert(this.loginModel.userid + ', ' + this.loginModel.password);
-    //location.href='/list';
+    
+    // Execute login
+
+    this.http.post(HttpConst.url("/login"), {
+      userid: this.model.userid,
+      passwd: this.model.password
+    }).subscribe((result) => {
+      if(!!result["message"]) {
+        alert(result["message"]);
+      }else if(result["token"]) {
+        let token = result["token"] as string;
+
+        // tokenを保存
+        SessionManager.saveToken(token);
+
+        location.href="/list";
+      }
+    });
 
   }
 }
 
-class LoginModel {
-  /** ユーザID */
-  public userid: string;
+export class LoginModel {
 
-  /** パスワード */
-  public password: string;
+  constructor(
+    public userid: string, 
+    public password: string ){}
 }

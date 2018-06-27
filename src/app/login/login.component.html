@@ -8,7 +8,7 @@
 </div>
 <div class="spacer"></div>
 
-<form class="contianer" [formGroup]="loginForm" (submit)="login($event)">
+<form class="contianer" >
     <div class="row spacer"></div>
     <div class="row center-block">
         <div class="col-md-4 offset-md-4 header">
@@ -17,7 +17,7 @@
     </div>
     <div class="row center-block">
         <div class="col-md-4 offset-md-4">
-            <input type="text" class="form-control" placeholder="example" [(ngModel)]="userid" formControlName="userid">
+            <input name="userid" type="text" class="form-control" placeholder="example" [(ngModel)]="model.userid" >
         </div>
     </div>
     <div class="row center-block">
@@ -27,14 +27,14 @@
     </div>
     <div class="row center-block">
         <div class="col-md-4 offset-md-4">
-            <input type="password" class="form-control" placeholder="***" [(ngModel)]="password" formControlName="password">
+            <input name="password" type="password" class="form-control" placeholder="***" [(ngModel)]="model.password">
         </div>
     </div>
     <div class="row spacer">
     </div>
     <div class="row">
         <div class="col-md-4 offset-md-4">
-            <button type="submit" class="btn btn-fill btn-primary">ログイン</button>
+            <button type="submit" class="btn btn-fill btn-primary" (click)="login()">ログイン</button>
         </div>
     </div>
 </form>
