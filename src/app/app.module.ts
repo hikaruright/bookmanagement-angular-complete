@@ -14,9 +14,14 @@ import { DetailComponent } from './detail/detail.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
+// RotueModule => URLパスとの紐付けを行う
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'list', component: ListComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'detail', component: DetailComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}, //404 page
 ]
@@ -36,6 +41,7 @@ const appRoutes: Routes = [
     TooltipModule.forRoot(), //Bootstrapを使用
     FormsModule, // フォームを使用する
     ReactiveFormsModule, // リアクティブフォームの利用
+    HttpClientModule, // HTTPクライアントの利用
   ],
   providers: [],
   bootstrap: [AppComponent]
