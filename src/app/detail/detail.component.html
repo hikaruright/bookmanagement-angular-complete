@@ -1,3 +1,115 @@
-<p>
-  detail works!
-</p>
+<div class="spacer"></div>
+    <div class="contianer">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 text-center page-title">
+                <h1>書籍情報</h1>
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+
+    <div class="contianer input-box card">
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                    タイトル
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.title}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                    著者
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.author}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                    出版社
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.publisherName}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                     価格
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.price | currency: 'JPY':true}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                    購入日
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.purchased}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                    書籍管理部門
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.managedDptName}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                    更新日
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.updated}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                    更新者
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.updator}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-2 box-header">
+                <span>
+                    更新者部署
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span>{{model.updatorDpt}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 offset-md-1">
+                <button class="btn btn-fill" onclick="location.href='/list'">戻る</button>
+            </div>
+            <div class="col-md-2 offset-md-6">
+                <button class="btn btn-fill btn-primary" [routerLink]="['/edit', id]">更新</button>
+            </div>
+        </div>
+    </div>
