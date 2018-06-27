@@ -12,8 +12,11 @@ import { ListComponent } from './list/list.component';
 import { RegisterComponent } from './register/register.component';
 import { DetailComponent } from './detail/detail.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: 'list', component: ListComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}, //404 page
 ]
@@ -30,7 +33,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes), // RouterModule
-    TooltipModule.forRoot() //Bootstrapを使用
+    TooltipModule.forRoot(), //Bootstrapを使用
+    FormsModule, // フォームを使用する
+    ReactiveFormsModule, // リアクティブフォームの利用
   ],
   providers: [],
   bootstrap: [AppComponent]

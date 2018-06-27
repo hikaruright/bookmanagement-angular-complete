@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,19 +8,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  /** ユーザID */
-  userid: string;
-
-  /** パスワード */
-  password: string;
+  @Input() loginModel: LoginModel;
+  loginForm: FormGroup;
 
   /** コンストラクタ */
-  constructor() { }
+  constructor(public fb: FormBuilder) {
+    this.createForm();
+  }
 
   ngOnInit() {
   }
 
-  login() {
-    
+  createForm() {
+    this.loginForm = this.fb.group({
+      userid: '',
+      password: ''
+    });
   }
+
+  /**
+   * ログイン
+   */
+  login() {
+    alert("aaaaa?"+this.loginModel);
+    alert(this.loginModel.userid + ', ' + this.loginModel.password);
+    //location.href='/list';
+
+  }
+}
+
+class LoginModel {
+  /** ユーザID */
+  public userid: string;
+
+  /** パスワード */
+  public password: string;
 }
