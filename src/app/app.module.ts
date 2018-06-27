@@ -11,11 +11,11 @@ import { PageNotFoundComponent } from './error/page-not-found/page-not-found.com
 import { ListComponent } from './list/list.component';
 import { RegisterComponent } from './register/register.component';
 import { DetailComponent } from './detail/detail.component';
+import { EditComponent } from './edit/edit.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import { EditComponent } from './edit/edit.component';
 
 // RotueModule => URLパスとの紐付けを行う
 const appRoutes: Routes = [
@@ -34,9 +34,9 @@ const appRoutes: Routes = [
     LoginComponent,
     PageNotFoundComponent,
     ListComponent,
-    RegisterComponent,,
-    EditComponent,
+    RegisterComponent,
     DetailComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
