@@ -58,4 +58,32 @@ export class EditComponent implements OnInit {
       });
   }
 
+  /**
+   * 登録処理
+   */
+  register() {
+
+    if(confirm("登録します。よろしいですか？")) {
+      
+      this.http.post(HttpConst.url("/book"), 
+        this.model, 
+        {headers: SessionManager.requestHeader()})
+        .subscribe(result => {
+          if(!result["result"]) {
+            if(!!result["validated"]) {
+              // エラーをマッピング
+
+              return;
+            }
+          } else {
+            alert ("登録に成功しました。");
+            let id = result["id"];
+
+            location.href="/detail/"+id;
+          }
+        });
+    }
+    
+  }
+
 }
