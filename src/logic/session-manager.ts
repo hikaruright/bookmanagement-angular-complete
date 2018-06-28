@@ -17,7 +17,9 @@ export class SessionManager {
      * APIアクセス用トークンの取得処理
      */
     public static loadToken() {
-        return sessionStorage.getItem(SessionManager.tokenKey)
+        let token = sessionStorage.getItem(SessionManager.tokenKey)
+        console.log(token);
+        return token;
     }
 
     /**

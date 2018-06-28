@@ -58,6 +58,32 @@ export class RegisterComponent implements OnInit {
    */
   register($event) {
 
-    alert(JSON.stringify(this.model));
+    //TODO バリデーションをつける。
+
+    // デバッグ用。何かわからない事があればこれで中身を確認できます。
+    // console.log(JSON.stringify(this.model));
+
+    if(confirm("登録します。よろしいですか？")) {
+
+      this.http.post(HttpConst.url("/book"),
+        this.model,
+        {headers: SessionManager.requestHeader()})
+        .subscribe(result => {
+          // 成功した？
+          if(!result["result"]) {
+            // 失敗
+            if(!!result["validated"]) {
+              // エラーをマッピング
+              
+              return;
+            }
+          }else {
+            alert("登録に成功しました。");
+            let id = result["id"];
+
+            location.href = "/detail/"+id;
+          }
+        });
+    }
   }
 }
