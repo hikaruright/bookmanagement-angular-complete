@@ -9,7 +9,7 @@ export class BookModel {
         // タイトル
         public title: string = null,
         // 著者
-        public autor: string = null,
+        public author: string = null,
         // 出版社
         public publisher: string = null,
         // 出版社名
