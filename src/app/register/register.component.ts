@@ -5,6 +5,7 @@ import { DateUtils } from '../../logic/date';
 import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,9 @@ import { SessionManager } from '../../logic/session-manager';
  */
 export class RegisterComponent implements OnInit {
 
+  /** リアクティブフォーム */
+  bookForm: FormGroup;
+
   /**登録モデル */
   model: BookModel;
 
@@ -27,9 +31,22 @@ export class RegisterComponent implements OnInit {
   today: string = DateUtils.today();
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public fb: FormBuilder) {
     // 初期化
     this.model = new BookModel();
+    this.createForm();
+   }
+
+   createForm() {
+    this.bookForm = this.fb.group({
+      id: '',
+      title: ['', Validators.required],
+      author: ['', Validators.required],
+      publisher: ['', Validators.required],
+      price: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      purchased: ['', [Validators.required, Validators.pattern('^\d{4}[\/.]\d{1,2}[\/.]\d{1,2}$')]],
+      managedDpt: ['', Validators.required]
+    })
    }
 
   ngOnInit() {

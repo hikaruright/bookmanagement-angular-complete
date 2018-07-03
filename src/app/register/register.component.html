@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="spacer"></div>
-
+<form [formGroup]="bookForm" (submit)="register($event)">
 <div class="contianer input-box">
     <div class="row">
         <div class="col-md-2 offset-md-2 offset-xs-1 box-header">
@@ -16,7 +16,7 @@
             </span>
         </div>
         <div class="col-md-6 offset-xs-1">
-            <input type="text" class="form-control" [(ngModel)]="model.title">
+            <input type="text" class="form-control" [(ngModel)]="model.title" formControlName="title">
         </div>
     </div>
     <div class="row">
@@ -26,7 +26,7 @@
             </span>
         </div>
         <div class="col-md-6 offset-xs-1">
-            <input type="text" class="form-control" [(ngModel)]="model.author">
+            <input type="text" class="form-control" [(ngModel)]="model.author" formControlName="author">
         </div>
     </div>
     <div class="row">
@@ -37,7 +37,7 @@
         </div>
         <div class="col-md-6 offset-xs-1">
             <div class=" select">
-                <select name="publisher" id="" [(ngModel)]="model.publisher">
+                <select name="publisher" id="" [(ngModel)]="model.publisher" formControlName="publisher">
                     <option *ngFor="let p of publishers" value="{{p.id}}">{{p.label}}</option>
                 </select>
             </div>
@@ -50,7 +50,7 @@
             </span>
         </div>
         <div class="col-md-6 offset-xs-1">
-            <input type="text" class="form-control" [(ngModel)]="model.price">
+            <input type="text" class="form-control" [(ngModel)]="model.price" formControlName="price">
         </div>
     </div>
     <div class="row">
@@ -60,7 +60,7 @@
             </span>
         </div>
         <div class="col-md-6 offset-xs-1">
-            <input type="text" class="form-control" [(ngModel)]="model.purchased">
+            <input type="text" class="form-control" [(ngModel)]="model.purchased" formControlName="purchased">
         </div>
     </div>
     <div class="row">
@@ -71,7 +71,7 @@
         </div>
         <div class="col-md-6 offset-xs-1">
             <div class="select">
-                <select name="managedDpt" [(ngModel)]="model.managedDpt">
+                <select name="managedDpt" [(ngModel)]="model.managedDpt" formControlName="managedDpt">
                     <option *ngFor="let d of departments" value="{{d.id}}">{{d.label}}</option>
                 </select>
             </div>
@@ -113,11 +113,12 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-2 offset-md-1 col-xs-3 offset-xs-1">
+        <div class="col-md-2 offset-md-1 col-sm-4 offset-sm-1">
             <button class="btn btn-fill" onclick="location.href='/list'">戻る</button>
         </div>
-        <div class="col-md-2 offset-md-6 col-sm-3 offset-xs-4">
+        <div class="col-md-2 offset-md-6 col-sm-4 offset-sm-2">
             <button class="btn btn-fill btn-primary" (click)="register($event)">登録</button>
         </div>
     </div>
 </div>
+</form>
