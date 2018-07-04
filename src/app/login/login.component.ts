@@ -11,8 +11,8 @@ import { SessionManager } from '../../logic/session-manager';
 })
 export class LoginComponent implements OnInit {
 
+  /**ログインモデル */
   public model: LoginModel;
-  loginForm: FormGroup;
 
   /** コンストラクタ */
   constructor(public http: HttpClient) {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
         // tokenを保存
         SessionManager.saveToken(token);
-
+        // リストへ遷移
         location.href="/list";
       }
     });

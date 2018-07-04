@@ -1,4 +1,6 @@
-
+/**
+ * セッション関連の管理クラス
+ */
 export class SessionManager {
 
     /**保存用のトークン */
