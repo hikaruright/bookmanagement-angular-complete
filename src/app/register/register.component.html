@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="spacer"></div>
-<form [formGroup]="bookForm" (submit)="register($event)">
+<form #bookForm="ngForm" (submit)="register($event, bookForm)">
 <div class="contianer input-box">
     <div class="row">
         <div class="col-md-2 offset-md-2 offset-xs-1 box-header">
@@ -16,7 +16,10 @@
             </span>
         </div>
         <div class="col-md-6 offset-xs-1">
-            <input type="text" class="form-control" [(ngModel)]="model.title" formControlName="title">
+            <input name="title" type="text" class="form-control" [(ngModel)]="model.title" #title="ngModel" required maxlength="20">
+            <div *ngIf="title.invalid && (title.dirty || title.touched || submitted)" class="danger">
+                <div *ngIf="title.errors.required">タイトルは必須です。</div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -26,7 +29,10 @@
             </span>
         </div>
         <div class="col-md-6 offset-xs-1">
-            <input type="text" class="form-control" [(ngModel)]="model.author" formControlName="author">
+            <input name="author" type="text" class="form-control" [(ngModel)]="model.author" #author="ngModel" required maxlength="20">
+            <div *ngIf="author.invalid && (author.dirty || author.touched || submitted)" class="danger">
+                <div *ngIf="author.errors.required">著者は必須です。</div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -37,7 +43,7 @@
         </div>
         <div class="col-md-6 offset-xs-1">
             <div class=" select">
-                <select name="publisher" id="" [(ngModel)]="model.publisher" formControlName="publisher">
+                <select name="publisher" id="" [(ngModel)]="model.publisher">
                     <option *ngFor="let p of publishers" value="{{p.id}}">{{p.label}}</option>
                 </select>
             </div>
@@ -50,7 +56,11 @@
             </span>
         </div>
         <div class="col-md-6 offset-xs-1">
-            <input type="text" class="form-control" [(ngModel)]="model.price" formControlName="price">
+            <input name="price" type="text" class="form-control" [(ngModel)]="model.price" required #price="ngModel" required pattern="[1-9][0-9]+">
+            <div *ngIf="price.invalid && (price.dirty || price.touched || submitted)" class="danger">
+                <div *ngIf="price.errors.required">価格は必須です。</div>
+                <div *ngIf="price.errors.pattern">価格は数字を入力してください。</div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -60,7 +70,11 @@
             </span>
         </div>
         <div class="col-md-6 offset-xs-1">
-            <input type="text" class="form-control" [(ngModel)]="model.purchased" formControlName="purchased">
+            <input name="purchased" type="text" class="form-control" [(ngModel)]="model.purchased" required #purchased="ngModel" required pattern="^(\d{4})\/(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])$">
+            <div *ngIf="purchased.invalid && (purchased.dirty || purchased.touched || submitted)" class="danger">
+                <div *ngIf="purchased.errors.required">購入日は必須です。</div>
+                <div *ngIf="purchased.errors.pattern">購入日はyyyy/MM/ddの形式で入力してください。</div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -71,7 +85,7 @@
         </div>
         <div class="col-md-6 offset-xs-1">
             <div class="select">
-                <select name="managedDpt" [(ngModel)]="model.managedDpt" formControlName="managedDpt">
+                <select name="managedDpt" [(ngModel)]="model.managedDpt">
                     <option *ngFor="let d of departments" value="{{d.id}}">{{d.label}}</option>
                 </select>
             </div>
@@ -117,7 +131,7 @@
             <button class="btn btn-fill" onclick="location.href='/list'">戻る</button>
         </div>
         <div class="col-md-2 offset-md-6 col-sm-4 offset-sm-2">
-            <button class="btn btn-fill btn-primary" (click)="register($event)">登録</button>
+            <button mdButton type="submit" class="btn btn-fill btn-primary">登録</button>
         </div>
     </div>
 </div>

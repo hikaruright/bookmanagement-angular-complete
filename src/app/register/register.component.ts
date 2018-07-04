@@ -5,7 +5,7 @@ import { DateUtils } from '../../logic/date';
 import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -18,9 +18,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
  */
 export class RegisterComponent implements OnInit {
 
-  /** リアクティブフォーム */
-  bookForm: FormGroup;
-
   /**登録モデル */
   model: BookModel;
 
@@ -30,26 +27,14 @@ export class RegisterComponent implements OnInit {
 
   today: string = DateUtils.today();
 
+  submitted: boolean = false;
 
-  constructor(private http: HttpClient, public fb: FormBuilder) {
+  constructor(private http: HttpClient) {
     // 初期化
     this.model = new BookModel();
-    this.createForm();
    }
 
-   createForm() {
-    this.bookForm = this.fb.group({
-      id: '',
-      title: ['', Validators.required],
-      author: ['', Validators.required],
-      publisher: ['', Validators.required],
-      price: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      purchased: ['', [Validators.required, Validators.pattern('^\d{4}[\/.]\d{1,2}[\/.]\d{1,2}$')]],
-      managedDpt: ['', Validators.required]
-    })
-   }
-
-  ngOnInit() {
+   ngOnInit() {
   
     // 出版社一覧をセット
     this.http.get<ListModel[]>(HttpConst.url("/list/publisher"), 
@@ -73,12 +58,18 @@ export class RegisterComponent implements OnInit {
    * 保存処理
    * @param $event イベント
    */
-  register($event) {
+  register($event, form: NgForm) {
 
-    //TODO バリデーションをつける。
+    // 一度submitされている。
+    this.submitted = true;
 
     // デバッグ用。何かわからない事があればこれで中身を確認できます。
     // console.log(JSON.stringify(this.model));
+
+    //Formの中にバリデーションエラーがある場合
+    if(form.invalid) {
+      return false;
+    }
 
     if(confirm("登録します。よろしいですか？")) {
 
@@ -89,11 +80,8 @@ export class RegisterComponent implements OnInit {
           // 成功した？
           if(!result["result"]) {
             // 失敗
-            if(!!result["validated"]) {
-              // エラーをマッピング
-              
-              return;
-            }
+            alert("サーバにてエラーが発生しました。");
+            return;
           }else {
             alert("登録に成功しました。");
             let id = result["id"];

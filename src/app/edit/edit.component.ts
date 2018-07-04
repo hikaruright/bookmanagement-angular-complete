@@ -34,6 +34,7 @@ export class EditComponent implements OnInit {
       this.http.get<BookModel>(HttpConst.url("/book/" + this.id), { headers: SessionManager.requestHeader() })
         .subscribe(data => {
           this.model = data;
+          this.model.id = this.id;
         });
     });
     // 出版社一覧をセット
@@ -62,19 +63,15 @@ export class EditComponent implements OnInit {
    * 登録処理
    */
   register() {
-
+    //alert(this.model.id + "?" + this.id);
     if(confirm("登録します。よろしいですか？")) {
-      
+      this.model.id = this.id;
       this.http.post(HttpConst.url("/book"), 
         this.model, 
         {headers: SessionManager.requestHeader()})
         .subscribe(result => {
           if(!result["result"]) {
-            if(!!result["validated"]) {
-              // エラーをマッピング
-
-              return;
-            }
+            alert("サーバにてエラーが発生しました。");
           } else {
             alert ("登録に成功しました。");
             let id = result["id"];

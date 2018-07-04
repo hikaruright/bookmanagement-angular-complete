@@ -132,10 +132,13 @@ div.select select {
   cursor: pointer;
   color: white;
   text-align: center;
+  display: table;
 }
 
 .floating span {
-  font-size: 40.8px;
+  font-size: 27.2px;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .floating:hover, .floating:active {
@@ -149,4 +152,8 @@ div.select select {
   margin-right: 3em;
   padding-top: 2em;
   padding-bottom: 2em;
+}
+
+.danger {
+  color: red;
 }
