@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
 
+/**
+ * ログインコンポーネント
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

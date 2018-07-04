@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // RotueModule => URLパスとの紐付けを行う
 const appRoutes: Routes = [
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent}, 
   {path: 'list', component: ListComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'detail/:id', component: DetailComponent},
