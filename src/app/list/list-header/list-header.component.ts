@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ListService } from '../list.service';
+import { FormGroup } from '@angular/forms';
+import { SearchCondition } from 'src/models/search-condition';
 
 @Component({
   selector: 'list-header',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListHeaderComponent implements OnInit {
 
-  constructor() { }
+  /**検索条件 */
+  searchModel: SearchCondition;
+  searchForm: FormGroup;
+
+  /**
+   * コンストラクタ
+   * @param listService リストサービス
+   */
+  constructor(private listService: ListService) {
+    this.searchModel = new SearchCondition();
+  }
 
   ngOnInit() {
   }
 
+  /**
+   * 検索実行
+   */
+  search() {
+    this.listService.search(this.searchModel);
+  }
 }

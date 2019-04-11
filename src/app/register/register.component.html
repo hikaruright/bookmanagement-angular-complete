@@ -68,9 +68,9 @@
             <span>
                 購入日
             </span>
-        </div>
+        </div>
         <div class="col-md-6 offset-xs-1">
-            <input name="purchased" type="text" class="form-control" [(ngModel)]="model.purchased" required #purchased="ngModel" required pattern="^(\d{4})\/(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])$">
+            <input name="purchased" type="date" class="form-control" [(ngModel)]="model.purchased" required #purchased="ngModel" required pattern="^(\d{4})\/(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])$">
             <div *ngIf="purchased.invalid && (purchased.dirty || purchased.touched || submitted)" class="danger">
                 <div *ngIf="purchased.errors.required">購入日は必須です。</div>
                 <div *ngIf="purchased.errors.pattern">購入日はyyyy/MM/ddの形式で入力してください。</div>
