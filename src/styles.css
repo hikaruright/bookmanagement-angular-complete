@@ -2,6 +2,7 @@ body {
   font-size: normal;
   background-color: #fdffea;
   color: #212121;
+  overflow-x:hidden;
 }
 
 .form-sm {
