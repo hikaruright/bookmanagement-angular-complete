@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
 
   /** コンストラクタ */
   constructor(public http: HttpClient) {
-    // this.createForm();
     this.model = new LoginModel(null, null);
   }
 

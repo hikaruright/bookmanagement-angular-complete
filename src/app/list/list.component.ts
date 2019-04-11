@@ -18,8 +18,6 @@ export class ListComponent implements OnInit {
   /** 取得した書籍の一覧情報 */
   books: BookListModel[] = [];
 
-  hasResult: boolean = false;
-
   /**
    * コンストラクタ
    * @param http HTTP通信モジュール
@@ -50,7 +48,6 @@ export class ListComponent implements OnInit {
    */
   onSearchcompleted(list: BookListModel[]) {
     this.books = list;
-    this.hasResult = list.length > 0;
   }
 
   /**

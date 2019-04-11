@@ -3,6 +3,9 @@ import { ListService } from '../list.service';
 import { FormGroup } from '@angular/forms';
 import { SearchCondition } from 'src/models/search-condition';
 
+/**
+ * リストヘッダ(検索部)のコンポーネント
+ */
 @Component({
   selector: 'list-header',
   templateUrl: './list-header.component.html',

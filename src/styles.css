@@ -157,3 +157,7 @@ div.select select {
 .danger {
   color: red;
 }
+
+a.btn {
+  background-color: white;
+}

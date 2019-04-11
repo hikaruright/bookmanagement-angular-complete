@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
       .subscribe(result => {
         this.departments = result;
         this.model.managedDpt = result[0].id;
-      })
+      });
     
   }
 

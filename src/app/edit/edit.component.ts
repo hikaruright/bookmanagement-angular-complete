@@ -54,7 +54,6 @@ export class EditComponent implements OnInit {
       { headers: SessionManager.requestHeader() })
       .subscribe(result => {
         this.publishers = result;
-        //this.model.publisher = result[0].id;
       });
 
     // 部署一覧をセット
@@ -62,7 +61,6 @@ export class EditComponent implements OnInit {
       { headers: SessionManager.requestHeader() })
       .subscribe(result => {
         this.departments = result;
-        //this.model.managedDpt = result[0].id;
       })
     // httpで取得する
     this.http.get<BookModel>(HttpConst.url("/book/" + this.id), { headers: SessionManager.requestHeader() })
