@@ -16,6 +16,7 @@ import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ListHeaderComponent } from './list/list-header/list-header.component';
 
 // RotueModule => URLパスとの紐付けを行う
 const appRoutes: Routes = [
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     RegisterComponent,
     DetailComponent,
     EditComponent,
+    ListHeaderComponent,
   ],
   imports: [
     BrowserModule,
