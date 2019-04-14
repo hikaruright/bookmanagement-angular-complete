@@ -28,6 +28,12 @@ export class EditComponent implements OnInit {
   /** 画面に表示する部署の一覧 */
   departments: ListModel[];
 
+  /** 一度以上submit済 */
+  submitted = false;
+
+  /** 本日日付 */
+  today: string;
+
   /**
    * コンストラクタ
    * @param http HTTP通信を行うためのモジュール
@@ -75,6 +81,9 @@ export class EditComponent implements OnInit {
   register() {
     if (confirm('登録します。よろしいですか？')) {
       this.model.id = this.id;
+
+      this.submitted = true;
+
       this.http.post(HttpConst.url('/book'),
         this.model,
         {headers: SessionManager.requestHeader()})
