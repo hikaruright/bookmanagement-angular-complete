@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 
   today: string = DateUtils.today();
 
-  submitted: boolean = false;
+  submitted = false;
 
   constructor(private http: HttpClient) {
     // 初期化
@@ -35,9 +35,9 @@ export class RegisterComponent implements OnInit {
    }
 
    ngOnInit() {
-  
+
     // 出版社一覧をセット
-    this.http.get<ListModel[]>(HttpConst.url("/list/publisher"), 
+    this.http.get<ListModel[]>(HttpConst.url('/list/publisher'),
     {headers: SessionManager.requestHeader()})
       .subscribe(result => {
         this.publishers = result;
@@ -45,13 +45,13 @@ export class RegisterComponent implements OnInit {
       });
 
     // 部署一覧をセット
-    this.http.get<ListModel[]>(HttpConst.url("/list/department"), 
+    this.http.get<ListModel[]>(HttpConst.url('/list/department'),
     {headers: SessionManager.requestHeader()})
       .subscribe(result => {
         this.departments = result;
         this.model.managedDpt = result[0].id;
       });
-    
+
   }
 
   /**
@@ -66,27 +66,27 @@ export class RegisterComponent implements OnInit {
     // デバッグ用。何かわからない事があればこれで中身を確認できます。
     // console.log(JSON.stringify(this.model));
 
-    //Formの中にバリデーションエラーがある場合
-    if(form.invalid) {
+    // Formの中にバリデーションエラーがある場合
+    if (form.invalid) {
       return false;
     }
 
-    if(confirm("登録します。よろしいですか？")) {
+    if (confirm('登録します。よろしいですか？')) {
 
-      this.http.post(HttpConst.url("/book"),
+      this.http.post(HttpConst.url('/book'),
         this.model,
         {headers: SessionManager.requestHeader()})
         .subscribe(result => {
           // 成功した？
-          if(!result["result"]) {
+          if (!result['result']) {
             // 失敗
-            alert("サーバにてエラーが発生しました。");
+            alert('サーバにてエラーが発生しました。');
             return;
-          }else {
-            alert("登録に成功しました。");
-            let id = result["id"];
+          } else {
+            alert('登録に成功しました。');
+            const id = result['id'];
 
-            location.href = "/detail/"+id;
+            location.href = '/detail/' + id;
           }
         });
     }

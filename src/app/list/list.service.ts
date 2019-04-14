@@ -11,9 +11,8 @@ import { BookListModel } from 'src/models/search-result';
     providedIn: 'root'
 })
 export class ListService {
-    
     /** 検索時、通信前に呼び出されるオブザーバ */
-    searchExecSubject:Subject<SearchCondition> = new Subject();
+    searchExecSubject: Subject<SearchCondition> = new Subject();
 
     /** 検索完了時に呼び出されるオブザーバ */
     searchCompleteSubject: Subject<BookListModel[]> = new Subject();
@@ -38,23 +37,23 @@ export class ListService {
 
         // 検索条件がある場合
         if (!!searchModel && (!!searchModel.title || !!searchModel.author || !!searchModel.publisher)) {
-      
-            this.http.post<BookListModel[]>(HttpConst.url("/books"), {
+
+            this.http.post<BookListModel[]>(HttpConst.url('/books'), {
                 title: searchModel.title,
                 author: searchModel.author,
                 publisher: searchModel.publisher
-            }, { headers: SessionManager.requestHeader() 
+            }, { headers: SessionManager.requestHeader()
             }).subscribe((list) => {
                 // 検索完了通知
                 this.searchCompleteSubject.next(list);
             });
 
         } else {
-    
+
             // 検索内容がない場合、全件を取得する。
-        
+
             // ヘッダにx-access-tokenをつけて送信する
-            this.http.get<BookListModel[]>(HttpConst.url("/books"), {
+            this.http.get<BookListModel[]>(HttpConst.url('/books'), {
                 headers: SessionManager.requestHeader()
             }).subscribe((list) => {
                 // 検索完了通知

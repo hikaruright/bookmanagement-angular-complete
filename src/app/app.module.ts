@@ -20,14 +20,14 @@ import { ListHeaderComponent } from './list/list-header/list-header.component';
 
 // RotueModule => URLパスとの紐付けを行う
 const appRoutes: Routes = [
-  {path: 'login', component: LoginComponent}, 
+  {path: 'login', component: LoginComponent},
   {path: 'list', component: ListComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'detail/:id', component: DetailComponent},
   {path: 'edit/:id', component: EditComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent}, //404 page
-]
+  {path: '**', component: PageNotFoundComponent}, // 404 page
+];
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes), // RouterModule
-    TooltipModule.forRoot(), //Bootstrapを使用
+    TooltipModule.forRoot(), // Bootstrapを使用
     FormsModule, // フォームを使用する
     ReactiveFormsModule, // リアクティブフォームの利用
     HttpClientModule, // HTTPクライアントの利用

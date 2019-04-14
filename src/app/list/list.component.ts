@@ -57,7 +57,7 @@ export class ListComponent implements OnInit {
    */
   clicked(_event, book: BookListModel) {
 
-    let id = book.id;
-    location.href = "/detail/" + id;
+    const id = book.id;
+    location.href = '/detail/' + id;
   }
 }

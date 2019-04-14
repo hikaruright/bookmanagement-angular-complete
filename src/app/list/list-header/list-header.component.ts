@@ -7,7 +7,7 @@ import { SearchCondition } from 'src/models/search-condition';
  * リストヘッダ(検索部)のコンポーネント
  */
 @Component({
-  selector: 'list-header',
+  selector: 'app-list-header',
   templateUrl: './list-header.component.html',
   styleUrls: ['./list-header.component.css']
 })
