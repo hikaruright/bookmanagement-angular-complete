@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../list.service';
 import { FormGroup } from '@angular/forms';
-import { SearchCondition } from 'src/models/search-condition';
+import { SearchCondition } from '../../../models';
 
 /**
  * リストヘッダ(検索部)のコンポーネント
