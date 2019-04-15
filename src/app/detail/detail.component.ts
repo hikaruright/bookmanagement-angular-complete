@@ -34,10 +34,10 @@ export class DetailComponent implements OnInit {
     // URLパラメータから取得するIDを取得
     this.route.params.subscribe(params => {
       // id情報を取得する。
-      this.id = params["id"];
+      this.id = params['id'];
       // 書籍情報を取得する
       this.http.get<BookModel>(
-        HttpConst.url("/book/" + this.id),
+        HttpConst.url('/book/' + this.id),
         { headers: SessionManager.requestHeader() })
         .subscribe(data => {
           this.model = data;
