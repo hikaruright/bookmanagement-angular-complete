@@ -3,8 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
-import { SearchCondition } from 'src/models/search-condition';
-import { BookListModel } from 'src/models/search-result';
+import { SearchCondition, BookListModel } from '../../models';
 import { ListService } from './list.service';
 
 @Component({
