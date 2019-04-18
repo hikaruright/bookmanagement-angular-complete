@@ -15,6 +15,5 @@ export class BookListModel {
     public title: string,
     public author: string,
     public publisher: string,
-  ) {
-  }
+  ) { }
 }

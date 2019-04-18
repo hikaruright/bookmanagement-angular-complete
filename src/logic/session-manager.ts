@@ -20,6 +20,7 @@ export class SessionManager {
      */
     public static loadToken() {
         const token = sessionStorage.getItem(SessionManager.tokenKey);
+        // ↓のコメントを外すと、コンソールにトークンが出力されます
         // console.log(token);
         return token;
     }

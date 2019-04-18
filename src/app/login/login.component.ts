@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
@@ -13,7 +12,7 @@ export class LoginModel {
     /** User ID */
     public userid: string,
     /** Password */
-    public password: string) {}
+    public password: string) { }
 }
 
 /**

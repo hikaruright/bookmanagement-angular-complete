@@ -1,9 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { HttpConst } from '../../logic/http-const';
-import { SessionManager } from '../../logic/session-manager';
-import { SearchCondition, BookListModel } from '../../models';
+import { Component, OnInit } from '@angular/core';
+import { BookListModel } from '../../models';
 import { ListService } from './list.service';
 
 @Component({
@@ -35,7 +31,7 @@ export class ListComponent implements OnInit {
     });
 
     // 検索完了時のイベントをバインドする
-    this.listService.searchCompleteSubject.subscribe(list => this.onSearchcompleted(list));
+    this.listService.searchCompleteSubject.subscribe(list => this.onSearchCompleted(list));
 
     // 条件なしで検索を行う
     this.listService.search(null);
@@ -45,12 +41,12 @@ export class ListComponent implements OnInit {
    * 一覧取得完了時のイベント
    * @param list 検索結果
    */
-  onSearchcompleted(list: BookListModel[]) {
+  onSearchCompleted(list: BookListModel[]) {
     this.books = list;
   }
 
   /**
-   * 行洗濯時のイベント
+   * 行選択時のイベント
    * @param _event イベント
    * @param book 選択行の情報
    */
