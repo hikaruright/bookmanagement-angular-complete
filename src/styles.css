@@ -2,6 +2,7 @@ body {
   font-size: normal;
   background-color: #fdffea;
   color: #212121;
+  overflow-x:hidden;
 }
 
 .form-sm {
@@ -156,4 +157,8 @@ div.select select {
 
 .danger {
   color: red;
+}
+
+a.btn {
+  background-color: white;
 }

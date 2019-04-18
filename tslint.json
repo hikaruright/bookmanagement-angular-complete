@@ -125,6 +125,17 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "no-submodule-imports": [
+      true,
+      "rxjs",
+      "@angular/platform-browser",
+      "@angular/core/testing",
+      "ngx-bootstrap/tooltip",
+      "@angular/common/http",
+      "@angular/platform-browser-dynamic/testing",
+      "zone.js",
+      "core-js"
+    ]
   }
 }

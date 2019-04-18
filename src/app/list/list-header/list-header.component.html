@@ -1,0 +1,37 @@
+<div class="contianer input-box">
+  <div class="row">
+      <div class="col-md-2 offset-md-2 col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 box-header">
+          <span>
+              タイトル
+          </span>
+      </div>
+      <div class="col-md-6 offset-md-0 col-xs-10 offset-xs-1 col-sm-10 offset-sm-1">
+          <input type="text" class="form-control" [(ngModel)]="searchModel.title" name="title">
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-2 offset-md-2 col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 box-header">
+          <span>
+              著者
+          </span>
+      </div>
+      <div class="col-md-6 offset-md-0 col-xs-10 offset-xs-1 col-sm-10 offset-sm-1">
+          <input type="text" class="form-control" [(ngModel)]="searchModel.author" name="author">
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-2 offset-md-2 col-xs-10 offset-xs-1 col-sm-10 offset-sm-1 box-header">
+          <span>
+              出版社
+          </span>
+      </div>
+      <div class="col-md-6 offset-md-0 col-xs-10 offset-xs-1 col-sm-10 offset-sm-1">
+          <input type="text" class="form-control" [(ngModel)]="searchModel.publisher" name="publisher">
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-2 offset-md-8 col-xs-10 offset-xs-1 col-sm-10 offset-sm-1">
+          <input type="submit" class="btn btn-fill btn-primary" value="検索" (click)="search()">
+      </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@
 export class SessionManager {
 
     /**保存用のトークン */
-    private static tokenKey: string = "BOOKMANAGE_STORAGE_KEY";
+    private static tokenKey = 'BOOKMANAGE_STORAGE_KEY';
 
     /**
      * APIアクセス用トークンの保存処理
@@ -19,8 +19,9 @@ export class SessionManager {
      * APIアクセス用トークンの取得処理
      */
     public static loadToken() {
-        let token = sessionStorage.getItem(SessionManager.tokenKey)
-        console.log(token);
+        const token = sessionStorage.getItem(SessionManager.tokenKey);
+        // ↓のコメントを外すと、コンソールにトークンが出力されます
+        // console.log(token);
         return token;
     }
 
@@ -29,7 +30,7 @@ export class SessionManager {
      */
     public static requestHeader() {
         return {
-            "x-access-token": SessionManager.loadToken()
+            'x-access-token': SessionManager.loadToken()
         };
     }
 }

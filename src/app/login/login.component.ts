@@ -1,8 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
+
+/**
+ * 入力用のログインモデル
+ */
+export class LoginModel {
+
+  constructor(
+    /** User ID */
+    public userid: string,
+    /** Password */
+    public password: string) { }
+}
 
 /**
  * ログインコンポーネント
@@ -15,12 +26,10 @@ import { SessionManager } from '../../logic/session-manager';
 export class LoginComponent implements OnInit {
 
   /**ログインモデル */
-  public model: LoginModel;
+  model = new LoginModel(null, null);
 
   /** コンストラクタ */
   constructor(public http: HttpClient) {
-    // this.createForm();
-    this.model = new LoginModel(null, null);
   }
 
   ngOnInit() {
@@ -30,31 +39,24 @@ export class LoginComponent implements OnInit {
    * ログイン
    */
   login() {
-    
+
     // Execute login
 
-    this.http.post(HttpConst.url("/login"), {
+    this.http.post(HttpConst.url('/login'), {
       userid: this.model.userid,
       passwd: this.model.password
     }).subscribe((result) => {
-      if(!!result["message"]) {
-        alert(result["message"]);
-      }else if(result["token"]) {
-        let token = result["token"] as string;
+      if (!!result['message']) {
+        alert(result['message']);
+      } else if (result['token']) {
+        const token = result['token'] as string;
 
         // tokenを保存
         SessionManager.saveToken(token);
         // リストへ遷移
-        location.href="/list";
+        location.href = '/list';
       }
     });
 
   }
-}
-
-export class LoginModel {
-
-  constructor(
-    public userid: string, 
-    public password: string ){}
 }

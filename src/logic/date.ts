@@ -19,12 +19,11 @@ export class DateUtils {
     static format(dt: Date) {
 
         // フォーマット
-        var nowStr = dt.getFullYear()
-            + "/" + ("00" + (dt.getMonth() + 1)).slice(-2)
-            + "/" + ("00" + dt.getDate()).slice(-2);
+        const nowStr = dt.getFullYear()
+            + '/' + ('00' + (dt.getMonth() + 1)).slice(-2)
+            + '/' + ('00' + dt.getDate()).slice(-2);
 
         // フォーマット化された日付を返却
         return nowStr;
     }
-
 }
