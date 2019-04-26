@@ -33,8 +33,7 @@ export class ListComponent implements OnInit {
       this.books = [];
     });
 
-    // 検索完了時のイベントをバインドする
-    this.listService.searchCompleteSubject.subscribe(list => this.onSearchCompleted(list));
+    // 問１：検索完了時のイベントをバインドする
 
     // 条件なしで検索を行う
     this.listService.search(null);

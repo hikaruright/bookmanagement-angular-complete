@@ -24,11 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let book of books" (click)="clicked($event, book)">
-                    <td><span>{{book.title}}</span></td>
-                    <td><span>{{book.author}}</span></td>
-                    <td><span>{{book.publisher}}</span></td>
-                </tr>
+                    <!-- 問１：ループを用いてテーブルを実装 -->
                 </tbody>
             </table>
         </ng-container>
