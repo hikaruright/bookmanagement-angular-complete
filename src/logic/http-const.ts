@@ -6,7 +6,7 @@ export class HttpConst {
     /**
      * サーバのエンドポイント
      */
-    public static endpoint = 'http://localhost:3000';
+    public static endpoint = 'https://solxyz.app/bookmanagement/api/';
 
     /**
      * URLを返却
