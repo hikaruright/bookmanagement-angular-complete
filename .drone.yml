@@ -28,6 +28,8 @@ pipeline:
     mount:
       - /build/dist
     repo: hikaruright/spring-test
+    username: hikaruright
+    password: solxyz001
     tags:
       - latest
       - 1.0.0
