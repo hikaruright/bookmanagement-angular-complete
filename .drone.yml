@@ -1,13 +1,10 @@
-workspace:
-  base: /build
-
 pipeline:
   build:
     image: trion/ng-cli
     commands:
       - npm install
       - np build --aot
-      - tar -xcvf app.tar.gz /build/dist
+      - tar -xcvf app.tar.gz ./dist
     when:
       branch: [ complete ]
       event: push
@@ -16,10 +13,10 @@ pipeline:
     image: drillster/drone-volume-cache
     rebuild: true
     mount:
-      - /build/target
+      - /
     commands:
-      - ls /build
-      - ls /build/dist
+      - pwd
+      - ls ./dist
     ttl: 7
     when:
       branch: [ complete ]
