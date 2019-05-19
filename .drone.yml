@@ -1,3 +1,6 @@
+workspace:
+  basedir: /build
+
 pipeline:
   build:
     image: trion/ng-cli
@@ -13,10 +16,10 @@ pipeline:
     image: drillster/drone-volume-cache
     rebuild: true
     mount:
-      - /
+      - /build/dist
     commands:
       - pwd
-      - ls ./dist
+      - ls /build/dist
     ttl: 7
     when:
       branch: [ complete ]
