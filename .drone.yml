@@ -8,6 +8,9 @@ pipeline:
       - npm install
       - np build --aot
       - tar -xcvf app.tar.gz /build/dist
+    when:
+      branch: [ complete ]
+      event: push
 
   rebuild-cache:
     image: drillster/drone-volume-cache
