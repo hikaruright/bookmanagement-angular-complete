@@ -6,7 +6,7 @@ export class HttpConst {
     /**
      * サーバのエンドポイント
      */
-    public static endpoint = 'https://solxyz.app/bookmanagement/api/';
+    public static endpoint = 'https://bookmanagement.solxyz.app/api/';
 
     /**
      * URLを返却

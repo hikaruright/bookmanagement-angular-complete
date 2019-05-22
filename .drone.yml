@@ -7,10 +7,10 @@ pipeline:
     commands:
       # - npm install -g @angular/cli
       # - npm install
-      # - ng build --aot
+      # - ng build --aot --base-href=/bookmanagement/
       - tar -zcvf app.tar.gz /build/dist/bookmanagement-angular/*
       - mv ./app.tar.gz /build
-      # - rm -rf node_modules
+      # - rm -rf /build/node_modules
       # - cp /build/dist/bookmanagement-angular /build
     mount:
       - /build/dist
@@ -22,9 +22,7 @@ pipeline:
     image: drillster/drone-volume-cache
     rebuild: true
     mount:
-      - ./node_modules
-    commands:
-      - ls /build
+      - /build/dist
     ttl: 7
     # when:
     #   branch: [ master ]
@@ -34,15 +32,13 @@ pipeline:
     image: plugins/docker
     dockerfile: Dockerfile
     mount:
-      - /build
-    settings:
-      repo: hikaruright/bookmanagement-angular
-      username: hikaruright
-      password: solxyz001
+      - /build/dist
+    repo: hikaruright/bookmanagement-angular
+    username: hikaruright
+    password: solxyz001
     tags:
       - latest
-      - 1.0.0
-      - 0.0.1
+      - 1.0.4
     # when:
     #   branch: [ master ]
     #   event: push
