@@ -33,12 +33,11 @@ pipeline:
     dockerfile: Dockerfile
     mount:
       - /build/dist
-    repo: hikaruright/bookmanagement-angular
-    username: hikaruright
-    password: solxyz001
+    repo: hikaruright/spring-test
     tags:
       - latest
-      - 1.0.4
-    # when:
-    #   branch: [ master ]
-    #   event: push
+      - 1.0.0
+      - 0.0.1
+    when:
+      branch: [ complete ]
+      event: push
