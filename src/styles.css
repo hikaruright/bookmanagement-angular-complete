@@ -1,6 +1,6 @@
 body {
   font-size: normal;
-  background-color: #fdffea;
+  background-color: #E1E2E1;
   color: #212121;
   overflow-x:hidden;
 }
@@ -45,6 +45,10 @@ body {
   font-weight: bold;
 }
 
+.form-control {
+  box-shadow: none;
+}
+
 .btn {
   border-radius: 0;
   border: none;
@@ -55,6 +59,11 @@ body {
   outline: none !important;
   border: none !important;
   box-shadow: 2px 2px 2px gray !important;
+}
+
+.btn-default {
+  color: #212121;
+  background-color: white;
 }
 
 .spacer {
@@ -157,8 +166,4 @@ div.select select {
 
 .danger {
   color: red;
-}
-
-a.btn {
-  background-color: white;
 }

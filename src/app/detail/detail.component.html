@@ -1,7 +1,7 @@
 <div class="spacer"></div>
     <div class="contianer">
         <div class="row">
-            <div class="col-md-4 offset-md-4 text-center page-title">
+            <div class="col-md-4 col-md-offset-4 text-center page-title">
                 <h1>書籍情報</h1>
             </div>
         </div>
@@ -10,7 +10,7 @@
 
     <div class="contianer input-box card">
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                     タイトル
                 </span>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                     著者
                 </span>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                     出版社
                 </span>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                      価格
                 </span>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                     購入日
                 </span>
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                     書籍管理部門
                 </span>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                     更新日
                 </span>
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                     更新者
                 </span>
@@ -90,7 +90,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 offset-md-2 box-header">
+            <div class="col-md-2 col-md-offset-2 box-header">
                 <span>
                     更新者部署
                 </span>
@@ -105,10 +105,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-2 offset-md-1">
-                <button class="btn btn-fill" onclick="location.href='/list'">戻る</button>
+            <div class="col-md-2 col-md-offset-1 col-sm-3 offset-sm-1">
+                <button class="btn btn-fill btn-default" [routerLink]="['/list']">戻る</button>
             </div>
-            <div class="col-md-2 offset-md-6">
+            <div class="col-md-2 col-md-offset-4 col-sm-3 offset-sm-2">
                 <button class="btn btn-fill btn-primary" [routerLink]="['/edit', id]">更新</button>
             </div>
         </div>
