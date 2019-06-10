@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     // 初期化
     this.model = new BookModel();
    }
@@ -86,7 +87,7 @@ export class RegisterComponent implements OnInit {
             alert('登録に成功しました。');
             const id = result['id'];
 
-            location.href = '/detail/' + id;
+            this.router.navigate(['/detail', id]);
           }
         });
     }

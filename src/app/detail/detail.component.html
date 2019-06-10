@@ -109,6 +109,9 @@
                 <button class="btn btn-fill btn-default" [routerLink]="['/list']">戻る</button>
             </div>
             <div class="col-md-2 col-md-offset-4 col-sm-3 offset-sm-2">
+                <button class="btn btn-fill btn-danger" (click)="remove()">削除</button>
+            </div>
+            <div class="col-md-2 col-md-offset-1 col-sm-3 offset-sm-0">
                 <button class="btn btn-fill btn-primary" [routerLink]="['/edit', id]">更新</button>
             </div>
         </div>

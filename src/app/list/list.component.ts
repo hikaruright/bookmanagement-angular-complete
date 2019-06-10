@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookListModel } from '../../models';
 import { ListService } from './list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -16,8 +17,9 @@ export class ListComponent implements OnInit {
   /**
    * コンストラクタ
    * @param http HTTP通信モジュール
+   * @param router URLルーター
    */
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService, private router: Router) { }
 
   /**
    * 画面ロード時のイベント
@@ -53,6 +55,6 @@ export class ListComponent implements OnInit {
   clicked(_event, book: BookListModel) {
 
     const id = book.id;
-    location.href = '/detail/' + id;
+    this.router.navigate(['/detail', id]);
   }
 }

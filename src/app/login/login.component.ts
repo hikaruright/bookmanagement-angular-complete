@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
+import { Router } from '@angular/router';
 
 /**
  * 入力用のログインモデル
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
   model = new LoginModel(null, null);
 
   /** コンストラクタ */
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private router: Router) {
   }
 
   ngOnInit() {
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
         // tokenを保存
         SessionManager.saveToken(token);
         // リストへ遷移
-        location.href = '/list';
+        this.router.navigate(['/list']);
       }
     });
 

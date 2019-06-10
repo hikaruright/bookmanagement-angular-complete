@@ -4,7 +4,7 @@ import { ListModel } from '../../models/listmodel';
 import { HttpClient } from '@angular/common/http';
 import { HttpConst } from '../../logic/http-const';
 import { SessionManager } from '../../logic/session-manager';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /**
  * 書籍情報更新コンポーネント
@@ -38,8 +38,9 @@ export class EditComponent implements OnInit {
    * コンストラクタ
    * @param http HTTP通信を行うためのモジュール
    * @param route ルート情報
+   * @param router ルーター情報
    */
-  constructor(private http: HttpClient, private route: ActivatedRoute) {
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
     this.model = new BookModel();
 
   }
@@ -94,7 +95,7 @@ export class EditComponent implements OnInit {
             alert ('登録に成功しました。');
 
             const id = result['id'];
-            location.href = '/detail/' + id;
+            this.router.navigate(['/detail', id]);
           }
         });
     }
