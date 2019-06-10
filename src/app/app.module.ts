@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 
@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ListHeaderComponent } from './list/list-header/list-header.component';
+import { GlobalErrorHandler } from 'src/service/error-handler';
 
 // RotueModule => URLパスとの紐付けを行う
 const appRoutes: Routes = [
@@ -48,7 +49,12 @@ const appRoutes: Routes = [
     ReactiveFormsModule, // リアクティブフォームの利用
     HttpClientModule, // HTTPクライアントの利用
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

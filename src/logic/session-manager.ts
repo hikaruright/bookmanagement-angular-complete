@@ -1,3 +1,5 @@
+import { SessionError } from 'src/service/error/session-error';
+
 /**
  * セッション関連の管理クラス
  */
@@ -22,6 +24,11 @@ export class SessionManager {
         const token = sessionStorage.getItem(SessionManager.tokenKey);
         // ↓のコメントを外すと、コンソールにトークンが出力されます
         // console.log(token);
+
+        if(!token) {
+            throw new SessionError("there is invalid session. please login first.");
+        }
+
         return token;
     }
 
