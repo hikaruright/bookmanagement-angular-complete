@@ -8,4 +8,6 @@ export class SearchCondition {
     author: string;
     /** 出版社 */
     publisher: string;
+    /** 自部門限定チェック */
+    onlyMineDep: boolean;
 }

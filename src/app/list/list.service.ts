@@ -34,12 +34,13 @@ export class ListService {
     // ----------
 
     // 検索条件がある場合
-    if (!!searchModel && (!!searchModel.title || !!searchModel.author || !!searchModel.publisher)) {
+    if (!!searchModel && (!!searchModel.title || !!searchModel.author || !!searchModel.publisher || searchModel.onlyMineDep)) {
 
       this.http.post<BookListModel[]>(HttpConst.url('/books'), {
         title: searchModel.title,
         author: searchModel.author,
-        publisher: searchModel.publisher
+        publisher: searchModel.publisher,
+        depFlag: searchModel.onlyMineDep,
       }, {
         headers: SessionManager.requestHeader()
         }).subscribe((list) => {

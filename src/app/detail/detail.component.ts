@@ -46,4 +46,19 @@ export class DetailComponent implements OnInit {
     });
   }
 
+  remove() {
+    
+    if (confirm('本当に削除します。よろしいですか？')) {
+      this.http.delete(HttpConst.url('/book/' + this.id),
+      {headers: SessionManager.requestHeader()})
+      .subscribe(result => {
+        alert("削除に成功しました。");
+        this.router.navigate(['/list']);
+      }, err => {
+        console.error(err);
+        alert("削除に失敗しました。");
+      });
+    }
+  }
+
 }
