@@ -33,6 +33,13 @@ export class SessionManager {
     }
 
     /**
+     * APIアクセス用のトークンを削除する
+     */
+    public static removeToken() {
+        sessionStorage.removeItem(SessionManager.tokenKey);
+    }
+
+    /**
      * リクエスト用のヘッダを生成
      */
     public static requestHeader() {

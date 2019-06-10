@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookListModel } from '../../models';
 import { ListService } from './list.service';
 import { Router } from '@angular/router';
+import { SessionManager } from 'src/logic/session-manager';
 
 @Component({
   selector: 'app-list',
@@ -56,5 +57,10 @@ export class ListComponent implements OnInit {
 
     const id = book.id;
     this.router.navigate(['/detail', id]);
+  }
+
+  logout() {
+    SessionManager.removeToken();
+    this.router.navigate(['/']);
   }
 }
