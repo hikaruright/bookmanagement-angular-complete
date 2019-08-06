@@ -52,10 +52,17 @@ export class LoginComponent implements OnInit {
       } else if (result['token']) {
         const token = result['token'] as string;
 
-        // tokenを保存
-        SessionManager.saveToken(token);
-        // リストへ遷移
-        this.router.navigate(['/list']);
+        this.http.get(HttpConst.url('/user/'+this.model.userid))
+          .subscribe((result) => {
+            // tokenを保存
+            SessionManager.saveToken(token);
+
+            SessionManager.saveUserInfo(result);
+
+            // リストへ遷移
+            this.router.navigate(['/list']);
+          })
+
       }
     });
 

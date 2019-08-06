@@ -27,6 +27,8 @@ export class BookModel {
         // 更新者
         public updator: string = null,
         // 更新部署
-        public updatorDpt: string = null
+        public updatorDpt: string = null,
+        // 更新部署名
+        public updatorDptName: string = null
     ) { }
 }

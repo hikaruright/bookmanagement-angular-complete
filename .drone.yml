@@ -8,7 +8,8 @@ pipeline:
       # - npm install -g @angular/cli
       # - npm install
       # - ng build --aot --base-href=/bookmanagement/
-      - tar -zcvf app.tar.gz /build/dist/bookmanagement-angular/*
+      - cd dist
+      - tar -zcvf app.tar.gz ./bookmanagement-angular/*
       - mv ./app.tar.gz /build
       # - rm -rf /build/node_modules
       # - cp /build/dist/bookmanagement-angular /build

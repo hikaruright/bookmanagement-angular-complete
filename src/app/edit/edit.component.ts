@@ -34,6 +34,12 @@ export class EditComponent implements OnInit {
   /** 本日日付 */
   today: string;
 
+  /** 登録者部署 */
+  updator: string;
+
+  /** 更新者部署 */
+  updatorDepartment: string;
+
   /**
    * コンストラクタ
    * @param http HTTP通信を行うためのモジュール
@@ -68,12 +74,25 @@ export class EditComponent implements OnInit {
       { headers: SessionManager.requestHeader() })
       .subscribe(result => {
         this.departments = result;
+
+        const loginUserDepart = SessionManager.loadDepartment();
+
+        // 自分の部署情報を取得
+        result.filter((row, i) => {
+          return row.id === loginUserDepart;
+        }).forEach((row, i) => {
+          this.updatorDepartment = row.label;
+          // this.model.managedDpt = row.id;
+        });
       });
     // httpで取得する
     this.http.get<BookModel>(HttpConst.url('/book/' + this.id), { headers: SessionManager.requestHeader() })
       .subscribe(data => {
         this.model = data;
+        // 更新者情報
+        this.model.updator = SessionManager.loadUserName();
       });
+
   }
 
   /**

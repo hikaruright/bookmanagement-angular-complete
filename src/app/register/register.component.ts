@@ -30,6 +30,12 @@ export class RegisterComponent implements OnInit {
 
   submitted = false;
 
+  /** 登録者部署 */
+  updator: string;
+
+  /** 更新者部署 */
+  updatorDepartment: string;
+
   constructor(private http: HttpClient, private router: Router) {
     // 初期化
     this.model = new BookModel();
@@ -50,9 +56,21 @@ export class RegisterComponent implements OnInit {
     {headers: SessionManager.requestHeader()})
       .subscribe(result => {
         this.departments = result;
-        this.model.managedDpt = result[0].id;
+        // this.model.managedDpt = result[0].id;
+
+        const loginUserDepart = SessionManager.loadDepartment();
+
+        // 自分の部署情報を取得
+        result.filter((row, i) => {
+          return row.id === loginUserDepart;
+        }).forEach((row, i) => {
+          this.updatorDepartment = row.label;
+          this.model.managedDpt = row.id;
+        });
       });
 
+    // 更新者情報
+    this.model.updator = SessionManager.loadUserName();
   }
 
   /**
