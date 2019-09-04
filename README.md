@@ -59,7 +59,7 @@ URL: http://localhost4300
 
 すでに存在する画面に対し、Angularのループ変数を用いてリストを表示する。
 
-#### 編集ファイル__
+#### 編集ファイル
 
 - src/app/list/list.component.ts
 - src/app/list/list.component.html
