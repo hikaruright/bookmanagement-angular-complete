@@ -15,4 +15,8 @@ export class EditComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * 登録処理
+   */
+  register() { }
 }

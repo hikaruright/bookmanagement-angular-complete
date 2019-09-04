@@ -3,7 +3,6 @@
 本アプリケーションは、
 モダンフロントエンド開発としてのAngularの学習を実施するための学習用アプリケーションです。
 
-
 ## 目的
 
 Angularの基礎的なコーディングを実施する。
@@ -60,21 +59,19 @@ URL: http://localhost4300
 
 すでに存在する画面に対し、Angularのループ変数を用いてリストを表示する。
 
-__編集ファイル__
+#### 編集ファイル__
 
 - src/app/list/list.component.ts
 - src/app/list/list.component.html
-
 
 ### 問２：詳細画面の実装
 
 情報の画面表示を行う。
 特に価格などのフォーマットがしっかり出来ているかに注力すること。
 
-__編集ファイル__
+#### 編集ファイル
 
 - src/app/detail/detail.component.html
-
 
 ### 問３：編集画面の実装
 
@@ -86,7 +83,7 @@ __編集ファイル__
 - クライアントサイドバリデーション
 - 保存処理(HTTP通信)
 
-__編集ファイル__
+#### 編集ファイル
 
 - src/app/edit/edit.component.html
 - src/app/edit/edit.component.ts
@@ -96,7 +93,7 @@ __編集ファイル__
 実装を行う際のAPI仕様書を以下に公開しています。
 以下の仕様書を元に実装を行って下さい。
 
-https://bookmanagementapi.docs.apiary.io/#reference
+[API仕様書](https://bookmanagementapi.docs.apiary.io/#reference)
 
 <div style="page-break-before:always"></div>
 
@@ -130,15 +127,15 @@ $ npm install -g @angular/cli
 
 適当なディレクトリへ移動し、以下のコマンドを実行します。
 
-```
-$ git clone https://solxyz.app/gitea/Angular-Study/bookmanagement-api-server.git
+```shellscript
+$ git clone https://github.com/jsn-developer/bookmanagement-api-server.git
 ```
 
 #### サーバの実行
 
 以下のコマンドを実行し、必要なライブラリをインストールします。
 
-```
+```shell
 $ cd bookmanagement-api-server
 $ npm install
 ```
@@ -147,20 +144,19 @@ $ npm install
 
 次に、以下のコマンドを実行するとサーバが起動します。
 
-```
+```shell
 $ mpm start
 ```
 
 以下のメッセージが表示されれば、起動は完了です
 
-```
+```shell
 initialize datababse.
 ```
 
 最後に、ブラウザを起動し、http://localhost4300/create にアクセスします。
 
 以下のようなメッセージが表示されればサーバの準備は完了です。
-
 
 ![起動確認メッセージ](readme_create.png)
 
@@ -175,15 +171,15 @@ initialize datababse.
 
 以下のコマンドを実行し、学習用のプロジェクトをクローンします
 
-```
-$ git clone https://solxyz.app/gitea/Angular-Study/bookmanagement-angular.git
+```shell
+$ git clone https://github.com/jsn-developer/bookmanagement-angular-study.git bookmanagement-angular
 ```
 
 #### 学習の準備
 
 以下のコマンドを実行します。
 
-```
+```shell
 $ cd bookmanagement-angular
 $ npm install
 ```
@@ -192,7 +188,7 @@ $ npm install
 
 インストールが完了したら、以下のコマンドを実行します。
 
-```
+```shell
 $ code .
 ```
 
@@ -201,7 +197,7 @@ Visual Studio Codeが起動しますので、
 表示 > 統合ターミナル　を選択します。
 すると、ターミナルが起動しますので、下記のコマンドを実行します。
 
-```
+```shell
 $ ng serve
 ```
 

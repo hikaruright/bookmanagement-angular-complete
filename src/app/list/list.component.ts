@@ -58,6 +58,9 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/detail', id]);
   }
 
+  /**
+   * ログアウト
+   */
   logout() {
     SessionManager.removeToken();
     this.router.navigate(['/']);
