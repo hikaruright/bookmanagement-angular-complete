@@ -25,10 +25,10 @@ export class BookModel {
         // 更新日
         public updated: string = null,
         // 更新者
-        public updator: string = null,
+        public updater: string = null,
         // 更新部署
-        public updatorDpt: string = null,
+        public updaterDpt: string = null,
         // 更新部署名
-        public updatorDptName: string = null
+        public updaterDptName: string = null
     ) { }
 }

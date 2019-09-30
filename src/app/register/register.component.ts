@@ -31,10 +31,10 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
   /** 登録者部署 */
-  updator: string;
+  updater: string;
 
   /** 更新者部署 */
-  updatorDepartment: string;
+  updaterDepartment: string;
 
   constructor(private http: HttpClient, private router: Router) {
     // 初期化
@@ -64,13 +64,13 @@ export class RegisterComponent implements OnInit {
         result.filter((row, i) => {
           return row.id === loginUserDepart;
         }).forEach((row, i) => {
-          this.updatorDepartment = row.label;
+          this.updaterDepartment = row.label;
           this.model.managedDpt = row.id;
         });
       });
 
     // 更新者情報
-    this.model.updator = SessionManager.loadUserName();
+    this.model.updater = SessionManager.loadUserName();
   }
 
   /**
